@@ -4,7 +4,6 @@ package com.controller.wechat;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +17,9 @@ public class WechatValidation {
     /*token与公众号配置一致*/
     private String token="zjzj1122";
 
-    @ApiOperation(value = "微信验证", httpMethod = "POST", notes = "微信验证借口2 正返有值1000 正返无值1001 错返有值1003 错返无值1004")
+    @ApiOperation(value = "微信验证", httpMethod = "POST", notes = "微信验证接口 (正确返回echostr)正返有值1000 正返无值1001 错返有值1003 错返无值1004")
     @ResponseBody
     @RequestMapping(value = { "/yanzheng.json" },params = "api=getCarCollectionPage", method = RequestMethod.POST)
-
     public String validation(@RequestParam String timestamp,@RequestParam String nonce,@RequestParam String signature,@RequestParam String echostr){
         List<String> list = new ArrayList<String>();
         list.add(token);
