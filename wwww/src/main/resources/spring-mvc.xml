@@ -23,17 +23,17 @@
      -->
     <context:component-scan base-package="com.controller" />
     <!-- spring mvc 注解及类型转换 -->
-    <mvc:annotation-driven conversion-service="conversionService" />
-    <bean id="conversionService"
-        class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-    </bean>
-    <!-- spring mvc 视图解析器 -->    
-    <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!-- 自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
-        <property name="prefix" value="/WEB-INF/pages/" />
-        <property name="suffix" value=".jsp"></property>
-    </bean> 
+    <mvc:annotation-driven />
+    <!--<bean id="conversionService"-->
+        <!--class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; spring mvc 视图解析器 &ndash;&gt;    -->
+    <!--&lt;!&ndash; 定义跳转的文件的前后缀 ，视图模式配置 &ndash;&gt;-->
+    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--&lt;!&ndash; 自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 &ndash;&gt;-->
+        <!--<property name="prefix" value="/WEB-INF/pages/" />-->
+        <!--<property name="suffix" value=".jsp"></property>-->
+    <!--</bean> -->
      
       
     <!-- <bean id="multipartResolver"
@@ -45,6 +45,19 @@
 		内存中的最大值
 		<property name="maxInMemorySize" value="40960" />
     </bean> -->
-    
-     
+
+    <!-- 将 springSwaggerConfig加载到spring容器 -->
+
+    <!-- 将自定义的swagger配置类加载到spring容器 -->
+    <bean class="com.swagger.ApplicationSwaggerConfig" />
+
+    <!--解决js,css,images访问不到的问题-->
+    <!--设置静态资源访问  -->
+    <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"/>
+
+
+
+    <mvc:default-servlet-handler/>
+
+
 </beans>
