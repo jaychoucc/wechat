@@ -20,9 +20,9 @@ public class MenuManager {
 
     public static void main(String[] args) {
         // 第三方用户唯一凭证
-        String appId = "wxa7634b426ba0e588";
+        String appId = "";
         // 第三方用户唯一凭证密钥
-        String appSecret = "47e32a1df37dfec1a14628ad64897cf5";
+        String appSecret = "";
 
         // 调用接口获取access_token
         AccessToken at = WeixinUtil.getAccessToken(appId, appSecret);
@@ -68,7 +68,7 @@ public class MenuManager {
         ViewButton btn21 = new ViewButton();
         btn21.setName("测试");
         btn21.setType("view");
-        btn21.setUrl("http://www.baidu.com");
+        btn21.setUrl("http://3609662f.ngrok.io/wwww/wechat/redirect.json");
 
         CommonButton btn22 = new CommonButton();
         btn22.setName("经典游戏");
