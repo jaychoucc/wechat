@@ -53,12 +53,13 @@ public class WechatMenu {
         }
         return Response.success("菜单创建成功", 1000);
     }
-
+    @ApiOperation(value = "授权模块", httpMethod = "GET", notes = "微信菜单模块接口 正返有值1000 正返无值1001 错返有值1003 错返无值1004")
     @RequestMapping(value = "/redirect.json", method = RequestMethod.GET)
     public void weixinRedirect(HttpServletResponse response) throws IOException {
-        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa7634b426ba0e588&redirect_uri=http%3a%2f%2f3609662f.ngrok.io%2fwwww%2fwechat%2foauth.json?response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect");
+        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa7634b426ba0e588&redirect_uri=http%3a%2f%2ff414bb1c.ngrok.io%2fwwww%2fwechat%2foauth.json?response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect");
     }
 
+    @ApiOperation(value = "userinfo模块", httpMethod = "GET", notes = "")
     @RequestMapping(value = "/oauth2.json", method = RequestMethod.GET)
     public  void weixinOAuth2(@RequestParam String code){
         System.out.println("userinfo:"+code);
@@ -67,9 +68,12 @@ public class WechatMenu {
         System.out.println("userinfo"+weixinOauth2Token.getOpenId());
         System.out.println("userinfo"+weixinOauth2Token.getAccessToken());
         SNSUserInfo userInfo = AdvancedUtil.getSNSUserInfo(weixinOauth2Token.getAccessToken(),weixinOauth2Token.getOpenId());
-        System.out.println(userInfo.getNickname());
+        System.out.println("userinfo:nickname"+userInfo.getNickname());
+        System.out.println("userinfo:img"+userInfo.getHeadImgUrl());
+        System.out.println("userinfo:openId"+userInfo.getOpenId());
     }
 
+    @ApiOperation(value = "静默授权", httpMethod = "GET", notes = "微信菜单模块接口 正返有值1000 正返无值1001 错返有值1003 错返无值1004")
     @RequestMapping(value = "/oauth.json", method = RequestMethod.GET)
     public String weixinOAuth(@RequestParam String code,HttpServletResponse response) throws IOException {
 
@@ -80,7 +84,7 @@ public class WechatMenu {
         System.out.println(weixinOauth2Token.getAccessToken());
         //使用openid查库，有数据就截止，否则使用userinfo；
 
-        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa7634b426ba0e588&redirect_uri=http%3a%2f%2f3609662f.ngrok.io%2fwwww%2fwechat%2foauth2.json?response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect");
+        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa7634b426ba0e588&redirect_uri=http%3a%2f%2ff414bb1c.ngrok.io%2fwwww%2fwechat%2foauth2.json?response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect");
 
 
 

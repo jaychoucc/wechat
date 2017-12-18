@@ -22,6 +22,7 @@
      4).....
      -->
     <context:component-scan base-package="com.controller" />
+    <context:component-scan base-package="com.service" />
     <!-- spring mvc 注解及类型转换 -->
     <mvc:annotation-driven />
     <!--<bean id="conversionService"-->

@@ -152,6 +152,19 @@
       </exclusions>
     </dependency>
 
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
+    <!-- java对象和XML相互转换的工具 -->
+    <dependency>
+      <groupId>xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>wwww</finalName>

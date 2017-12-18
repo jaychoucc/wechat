@@ -68,17 +68,17 @@ public class MenuManager {
         ViewButton btn21 = new ViewButton();
         btn21.setName("测试");
         btn21.setType("view");
-        btn21.setUrl("http://3609662f.ngrok.io/wwww/wechat/redirect.json");
+        btn21.setUrl("http://f414bb1c.ngrok.io/wwww/wechat/redirect.json");
 
         CommonButton btn22 = new CommonButton();
         btn22.setName("经典游戏");
         btn22.setType("click");
         btn22.setKey("22");
 
-        CommonButton btn23 = new CommonButton();
-        btn23.setName("美女电台");
-        btn23.setType("click");
-        btn23.setKey("23");
+//        CommonButton btn23 = new CommonButton();
+//        btn23.setName("美女电台");
+//        btn23.setType("click");
+//        btn23.setKey("23");
 
         CommonButton btn24 = new CommonButton();
         btn24.setName("人脸识别");
@@ -120,7 +120,7 @@ public class MenuManager {
 
         ComplexButton mainBtn2 = new ComplexButton();
         mainBtn2.setName("休闲驿站");
-        mainBtn2.setSub_button(new Button[] { btn21, btn22, btn23, btn24, btn25 });
+        mainBtn2.setSub_button(new Button[] { btn21, btn22, btn24, btn25 });
 
 
         ComplexButton mainBtn3 = new ComplexButton();
